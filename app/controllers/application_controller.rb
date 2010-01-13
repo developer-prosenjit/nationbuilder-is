@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
   
   def get_layout
     return false if not is_robot? and not current_government
+    return "referendum" if controller_name == "points" and ["for_and_against"].include?(action_name)
     return "basic" if not current_government
     return current_government.layout 
   end

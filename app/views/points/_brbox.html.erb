@@ -1,5 +1,8 @@
-<div class="brbox" id="<%= id %>">
-  <% points.each do |point| %>
-    <div class="point" id="<%= point.id %>"><%= point.name %></div>
-  <% end %>
+
+<% points.each do |point| %>
+<div class="atridi">
+	<div class="einkunn"><img src="/images/Gefa_einkunn.png" alt="" /></div>
+	<div class="facebook"><img src="/images/Facebook.png" alt="" /></div>
+	<p><%= point.name %></p>
 </div>
+<% end %>
