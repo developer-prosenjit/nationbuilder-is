@@ -28,20 +28,28 @@ class PointsController < ApplicationController
   end  
 
   def for_and_against
-    @page_title = t('points.proetcontra.title', :government_name => current_government.name)
+    @page_title = t('points.for_or_against.title', :government_name => current_government.name)
     @points_new_up = Point.published.five.up.by_recently_created :include => :priority
     @points_new_down = Point.published.five.down.by_recently_created :include => :priority
     @points_top_up = Point.published.five.up.top :include => :priority
     @points_top_down = Point.published.five.down.top :include => :priority
     # @rss_url = url_for :only_path => false, :format => "rss"
     respond_to do |format|
-      format.html { render :action => "fororagainst" }
-      #format.rss { render :template => "rss/points" }
-      #format.xml { render :xml => @points.to_xml(:include => [:priority, :other_priority], :except => NB_CONFIG['api_exclude_fields']) }
-      #format.json { render :json => @points.to_json(:include => [:priority, :other_priority], :except => NB_CONFIG['api_exclude_fields']) }
+	format.html { render :action => "fororagainst" }
+	#format.rss { render :template => "rss/points" }
+	#format.xml { render :xml => @points.to_xml(:include => [:priority, :other_priority], :except => NB_CONFIG['api_exclude_fields']) }
+	#format.json { render :json => @points.to_json(:include => [:priority, :other_priority], :except => NB_CONFIG['api_exclude_fields']) }
+	format.js do
+		render :update do |page|
+			page.replace_html 'pro_top', :partial => "brbox", :locals => {:id => "pro_top", :points => @points_top_up}
+			page.replace_html 'con_top', :partial => "brbox", :locals => {:id => "con_top", :points => @points_top_down}
+			page.replace_html 'pro_new', :partial => "brbox", :locals => {:id => "pro_new", :points => @points_new_up}
+			page.replace_html 'con_new', :partial => "brbox", :locals => {:id => "con_new", :points => @points_new_down}
+		end
+	end
     end
   end  	
-
+  
   def your_priorities
     @page_title = t('points.your_priorities.title', :government_name => current_government.name)
     if current_user.endorsements_count > 0    

@@ -111,7 +111,8 @@ ActionController::Routing::Routes.draw do |map|
         :discussions => :get, 
         :quality => :post, 
         :unquality => :post, 
-        :unhide => :get },
+        :unhide => :get
+	},
     :collection => { :newest => :get, :revised => :get, :your_priorities => :get } do |points|
     points.resources :revisions, :member => {:clean => :get}
   end
