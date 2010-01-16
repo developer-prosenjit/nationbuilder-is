@@ -1,0 +1,46 @@
+<div id="content" class="container_12">
+	
+<div  class="grid_7 ">
+	<div class="Undirhaus">
+		<h3>Setja inn ný rök fyrir Já</h3>
+	</div>
+	<p>Hver finnst þér vera bestu rökin fyrir að samþykkja eigi IceSave?</p>
+	<p> Hafðu textann hnitmiðaðan og einbeittu þér að einu atriði, þú getur sett inn fleiri rök síðar.</p>
+
+	<p>Þú verður að fylla í reiti sem eru merktir með *.</p>
+	<form action="/new_point" method="post">
+		<div>
+			<p>* Helstu atriði í 140 stöfum</p>
+			<p>
+				<input id="point_name" maxlength="140" name="point[name]" size="66" type="text" />
+			</p>
+		</div>
+
+		<div>
+			<p>* Útskýrðu þín rök. Þú átt <span id="pointContentDown">1000</span> stafi eftir.</p>
+			<p>
+				<textarea button="submit" cols="52" id="pointContent" maxlength="1000" name="point[content]" rows="5"></textarea>
+			</p>
+		</div>
+
+		<div>
+			<p>Vísaðu á vefsíðu sem eykur skilning eða styður þín rök</p>
+			<div>
+				<input id="point_website" name="point[website]" size="66" type="text" />
+			</div>
+		</div>
+		
+		<div>
+			<p>Tengdu þetta við önnur rök. Byrjaðu að skrifa og þá birtast möguleikar til að velja úr.</p>
+			<p>
+				<input autocomplete="off" id="point_other_priority_name" name="point[other_priority_name]" size="50" type="text" />
+			</p>
+			<p>Þessi tenging er valfrjáls en getur styrkt mál þitt. </p>
+			<p>
+				<input id="submit" name="commit" type="submit" value="Vista og birta rök" />
+			</p>
+		</div>
+	</form>
+</div>
+
+</div>

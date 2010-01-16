@@ -1,52 +1,19 @@
 
-<script type="text/javascript">
-	var slidervalues = [];
-	var activepoint = 0;
-	$(function() {
-		$("#slider").slider( { 
-			step: 1,
-			max: 100,
-			min: 0,
-			value: 50,
-			orientation: 'vertical',
-			stop: function(event, ui) {
-				var rank = $('#slider').slider('option', 'value');
-				$.ajax({
-					type: "GET",
-					data: ({ 'id': activepoint, 'value': rank }),
-					url: '/for_and_against',
-					dataType: 'script'
-				});
-				slidervalues[activepoint] = rank;
-				$('#slider').hide();
-			},
-		}).hide();
-	});
 
-	function showSlider(di, id) {
-		var p = findPos(document.getElementById(di));
-		activepoint = id;
-		if (!slidervalues[activepoint]) {
-			slidervalues[activepoint] = 50;
-		}
-		$('#slider').slider('option', 'value',  slidervalues[activepoint]);
-		$("#slider").css("left", p[0]+4);
-		$("#slider").css("top", p[1]-30);
-		$("#slider").show();
-	}
-	
-	function findPos(obj) {
-		var curLeft = curTop = 0;
-		if (obj.offsetParent) {
-			do {
-				curLeft += obj.offsetLeft;
-				curTop += obj.offsetTop;
-			} while (obj = obj.offsetParent);
-		}
-		return [curLeft, curTop];
-	}
-</script>
-<div id="slider" style="position: absolute; z-index: 100;"></div>
+	<div id="" class="grid_6 frumvarpid">
+		<div class="Undirhaus ">
+			<h3>Spurningin</h3>
+			<p class="Nedan_linu"><a href="http://skuggathing.is/cases/420">Frumvarp um þjóðaratkvæðagreiðslur</a></p>
+		</div>
+		<p>„Lög nr. 1/2010 kveða á um breytingu á lögum nr. 96/2009, um heimild til handa fjármálaráðherra, fyrir hönd ríkissjóðs, til að ábyrgjast lán Tryggingarsjóðs innstæðueigenda og fjárfesta frá breska og hollenska ríkinu til að standa straum af greiðslum til innstæðueigenda hjá Landsbanka Íslands hf. Alþingi samþykkti lög nr. 1/2010 en forseti synjaði þeim staðfestingar. Eiga lög nr. 1/2010 að halda gildi?“ </p>
+	</div>
+	<div id="haegri" class="grid_6 frumvarpid">
+		<div class="Undirhaus">
+			<h3>Ríkisábyrgð á IceSave</h3>
+			<p class="Nedan_linu"><a href="http://skuggathing.is/cases/311">Frumvarp um ríkisábyrgð</a></p>
+		</div>
+		<p> Frumvarp til laga um breytingu á lögum nr. 96/2009, um heimild til handa fjármálaráðherra, fyrir hönd ríkissjóðs, til að ábyrgjast lán Tryggingarsjóðs innstæðueigenda og fjárfesta frá breska og hollenska ríkinu til að standa straum af greiðslum til innstæðueigenda hjá Landsbanka Íslands hf. </p>
+	</div>
 
 
 

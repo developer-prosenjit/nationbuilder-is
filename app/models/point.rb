@@ -311,4 +311,12 @@ class Point < ActiveRecord::Base
     link(:rel => "nofollow")
   end  
   
+  def calculate_importance
+	PointImportanceScore.calculate_score(self.id)
+  end
+
+  def set_importance(user_id, score)
+	PointImportanceScore.update_or_create(self.id, user_id, score)
+  end
+  
 end

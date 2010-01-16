@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100112183550) do
+ActiveRecord::Schema.define(:version => 20100115004107) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -679,6 +679,14 @@ ActiveRecord::Schema.define(:version => 20100112183550) do
     t.integer  "width",        :limit => 8
     t.string   "content_type", :limit => 100
     t.binary   "data",         :limit => 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "point_importance_scores", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "point_id"
+    t.integer  "importance_score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
